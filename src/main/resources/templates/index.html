@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des thés</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            max-width: 10%;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        a, button {
+            margin-right: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+
+<h1>Liste des thés</h1>
+
+<a th:href="@{/nouveau}">➕ Ajouter un thé</a>
+
+<br><br>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Type</th>
+        <th>Origine</th>
+        <th>Prix (€)</th>
+        <th>Stock</th>
+        <th>Description</th>
+        <th>Date réception</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="produit : ${listeproduits}">
+        <td th:text="${produit.id}"></td>
+        <td th:text="${produit.nom}"></td>
+        <td th:text="${produit.typeThe}"></td>
+        <td th:text="${produit.origine}"></td>
+        <td th:text="${produit.prix}"></td>
+        <td th:text="${produit.quantiteStock}"></td>
+        <td th:text="${produit.description}"></td>
+        <td th:text="${produit.dateReception}"></td>
+        <td>
+            <a th:href="@{/modifier/{id}(id=${produit.id})}">✏️ Modifier</a>
+            <a href="#"
+               th:onclick="'confirmDelete(' + ${produit.id} + ')'">
+                🗑️ Supprimer
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="/script.js"></script>
+</body>
+</html>
