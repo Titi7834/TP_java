@@ -12,33 +12,58 @@
             border: 1px solid #ccc;
             padding: 8px;
             max-width: 10%;
+            text-align: left;
         }
         th {
             background-color: #f0f0f0;
+            cursor: pointer;
         }
         a, button {
             margin-right: 5px;
         }
+        input, select {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
 <h1>Liste des thés</h1>
+<table id="tableFiltreAjout">
+    <tr>
+        <td>
+            <a th:href="@{/nouveau}">➕ Ajouter un thé</a>
+        </td>
+        <td>
+            <label for="searchNom">Rechercher par nom :</label>
+            <input type="text" id="searchNom" placeholder="Nom du thé...">
+        </td>
+        <td>
+            <label for="filterType">Filtrer par type :</label>
+            <select id="filterType">
+                <option value="">Tous les types</option>
+                <option value="Vert">Vert</option>
+                <option value="Noir">Noir</option>
+                <option value="Oolong">Oolong</option>
+                <option value="Blanc">Blanc</option>
+                <option value="Pu-erh">Pu-erh</option>
+            </select>
+        </td>
+    </tr>
+</table>
 
-<a th:href="@{/nouveau}">➕ Ajouter un thé</a>
-
-<br><br>
-
-<table>
+<table id="tableProduits">
     <thead>
     <tr>
         <th>ID</th>
-        <th>Nom</th>
+        <th data-column="nom">Nom ▲▼</th>
         <th>Type</th>
         <th>Origine</th>
-        <th>Prix (€)</th>
-        <th>Stock</th>
+        <th data-column="prix">Prix (€) ▲▼</th>
+        <th data-column="quantiteStock">Stock ▲▼</th>
         <th>Description</th>
         <th>Date réception</th>
         <th>Actions</th>
@@ -56,15 +81,14 @@
         <td th:text="${produit.dateReception}"></td>
         <td>
             <a th:href="@{/modifier/{id}(id=${produit.id})}">✏️ Modifier</a>
-            <a href="#"
-               th:onclick="'confirmDelete(' + ${produit.id} + ')'">
-                🗑️ Supprimer
-            </a>
+            <a href="#" th:onclick="'confirmDelete(' + ${produit.id} + ')'">🗑️ Supprimer</a>
         </td>
     </tr>
     </tbody>
 </table>
+
 <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script src="/script.js"></script>
+
 </body>
 </html>

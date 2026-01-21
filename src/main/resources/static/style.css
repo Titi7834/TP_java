@@ -1,0 +1,118 @@
+/* === Style général de la page === */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    margin: 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* === Liens et boutons === */
+a {
+    color: #2980b9;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: #2980b9;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1c5980;
+}
+
+/* === Inputs et selects === */
+input, select, textarea {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    width: 100%;
+    max-width: 320px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* === Labels === */
+label {
+    font-weight: 500;
+    margin-top: 10px;
+    display: block;
+}
+
+/* === Tables === */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin-top: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.05);
+}
+
+th, td {
+    padding: 10px 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f7f7f7;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #eef6fc;
+}
+
+/* === Inputs et filtres sur la table === */
+#searchNom, #filterType {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+/* === Boutons retour / actions === */
+button, a.button {
+    margin-top: 10px;
+}
+
+/* === Formulaire Produit === */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 6px;
+    max-width: 500px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+#ajout {
+    text-align: center;
+}
+
+#formAjout {
+    display: inline-block;
+    width: 400px;
+}

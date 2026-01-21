@@ -12,62 +12,65 @@
             width: 300px;
         }
     </style>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
 <h1>Formulaire Produit</h1>
 
-<form th:action="@{/enregistrer}" method="post">
+<div id="ajout">
+    <form th:action="@{/enregistrer}" method="post" id="formAjout">
 
-    <!-- ID caché pour update -->
-    <input type="hidden" name="id" th:value="${produit?.id}"/>
+        <!-- ID caché pour update -->
+        <input type="hidden" name="id" th:value="${produit?.id}"/>
 
-    <label>Nom *</label>
-    <input type="text" name="nom" maxlength="100"
-           th:value="${produit?.nom}" required/>
+        <label>Nom *</label>
+        <input type="text" name="nom" maxlength="100"
+               th:value="${produit?.nom}" required/>
 
-    <label>Type de thé *</label>
-    <select name="typeThe" required>
-        <option value="">-- Sélectionner --</option>
-        <option th:selected="${produit?.typeThe == 'Vert'}">Vert</option>
-        <option th:selected="${produit?.typeThe == 'Noir'}">Noir</option>
-        <option th:selected="${produit?.typeThe == 'Oolong'}">Oolong</option>
-        <option th:selected="${produit?.typeThe == 'Blanc'}">Blanc</option>
-        <option th:selected="${produit?.typeThe == 'Pu-erh'}">Pu-erh</option>
-    </select>
+        <label>Type de thé *</label>
+        <select name="typeThe" required>
+            <option value="">-- Sélectionner --</option>
+            <option th:selected="${produit?.typeThe == 'Vert'}">Vert</option>
+            <option th:selected="${produit?.typeThe == 'Noir'}">Noir</option>
+            <option th:selected="${produit?.typeThe == 'Oolong'}">Oolong</option>
+            <option th:selected="${produit?.typeThe == 'Blanc'}">Blanc</option>
+            <option th:selected="${produit?.typeThe == 'Pu-erh'}">Pu-erh</option>
+        </select>
 
-    <label>Origine *</label>
-    <select name="origine" required>
-        <option value="">-- Sélectionner --</option>
-        <option th:selected="${produit?.origine == 'Chine'}">Chine</option>
-        <option th:selected="${produit?.origine == 'Japon'}">Japon</option>
-        <option th:selected="${produit?.origine == 'Inde'}">Inde</option>
-        <option th:selected="${produit?.origine == 'Sri Lanka'}">Sri Lanka</option>
-        <option th:selected="${produit?.origine == 'Taiwan'}">Taiwan</option>
-    </select>
+        <label>Origine *</label>
+        <select name="origine" required>
+            <option value="">-- Sélectionner --</option>
+            <option th:selected="${produit?.origine == 'Chine'}">Chine</option>
+            <option th:selected="${produit?.origine == 'Japon'}">Japon</option>
+            <option th:selected="${produit?.origine == 'Inde'}">Inde</option>
+            <option th:selected="${produit?.origine == 'Sri Lanka'}">Sri Lanka</option>
+            <option th:selected="${produit?.origine == 'Taiwan'}">Taiwan</option>
+        </select>
 
-    <label>Prix (€)</label>
-    <input type="number" step="0.01" min="5" max="100"
-           name="prix" th:value="${produit?.prix}" required/>
+        <label>Prix (€)</label>
+        <input type="number" step="0.01" min="5" max="100"
+               name="prix" th:value="${produit?.prix}" required/>
 
-    <label>Quantité en stock</label>
-    <input type="number" min="0"
-           name="quantiteStock" th:value="${produit?.quantiteStock}" required/>
+        <label>Quantité en stock</label>
+        <input type="number" min="0"
+               name="quantiteStock" th:value="${produit?.quantiteStock}" required/>
 
-    <label>Description</label>
-    <textarea name="description" maxlength="500"
-              th:text="${produit?.description}"></textarea>
+        <label>Description</label>
+        <textarea name="description" maxlength="500"
+                  th:text="${produit?.description}"></textarea>
 
-    <label>Date de réception</label>
-    <input type="date" name="dateReception"
-           th:value="${produit?.dateReception}" required/>
+        <label>Date de réception</label>
+        <input type="date" name="dateReception"
+               th:value="${produit?.dateReception}" required/>
 
-    <br><br>
+        <br><br>
 
-    <button type="submit">💾 Enregistrer</button>
-    <a th:href="@{/}">⬅️ Retour</a>
+        <button type="submit">💾 Enregistrer</button>
+        <a th:href="@{/}">⬅️ Retour</a>
 
-</form>
+    </form>
+</div>
 
 </body>
 </html>
